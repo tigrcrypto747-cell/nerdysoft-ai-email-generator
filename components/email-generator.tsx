@@ -143,7 +143,7 @@ export function EmailGenerator() {
           <Button
             onClick={handleGenerate}
             disabled={!topic.trim() || loading}
-            className="w-full h-11 text-base font-medium"
+            className="w-full h-11 text-base font-medium transition-all duration-200"
           >
             {loading ? (
               <>
@@ -165,9 +165,9 @@ export function EmailGenerator() {
         </CardContent>
       </Card>
 
-      {/* Output Card */}
+      {/* Output Card — fades and slides up when the result arrives */}
       {result && (
-        <Card className="animate-in fade-in slide-in-from-bottom-4 duration-300">
+        <Card className="animate-fade-in-up">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg">Generated email</CardTitle>

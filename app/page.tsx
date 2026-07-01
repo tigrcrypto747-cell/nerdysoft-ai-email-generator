@@ -99,20 +99,36 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/30 px-4 py-24 sm:py-32 text-center">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(0,0,0,0.05),transparent)]" />
         <div className="max-w-4xl mx-auto">
-          <Badge variant="secondary" className="mb-6 px-4 py-1.5 text-sm font-medium">
+          {/* Badge fades in first */}
+          <Badge
+            variant="secondary"
+            className="mb-6 px-4 py-1.5 text-sm font-medium animate-fade-in"
+          >
             ✨ AI-Powered Email Generation
           </Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.1]">
+
+          {/* Headline slides up with a slight delay */}
+          <h1
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.1] animate-fade-in-up animation-delay-100"
+          >
             Write perfect emails{" "}
             <span className="text-primary underline decoration-wavy underline-offset-4 decoration-2">
               in seconds
             </span>
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+
+          {/* Sub-copy follows */}
+          <p
+            className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-200"
+          >
             Stop spending hours crafting the right words. MailCraft AI generates
             professional, contextual emails for any situation — instantly.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+          {/* Buttons last in the stagger */}
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-300"
+          >
             <Button size="lg" className="text-base px-8 h-12" asChild>
               <Link href="/signup">
                 Start for free <ArrowRight className="ml-2 w-4 h-4" />
@@ -122,7 +138,10 @@ export default function HomePage() {
               <Link href="#how-it-works">See how it works</Link>
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground mt-6">
+
+          <p
+            className="text-xs text-muted-foreground mt-6 animate-fade-in animation-delay-400"
+          >
             No credit card required · Free plan includes 10 emails/month
           </p>
         </div>
@@ -156,8 +175,12 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {HOW_IT_WORKS.map(({ step, title, description }) => (
-              <div key={step} className="relative text-center">
+            {HOW_IT_WORKS.map(({ step, title, description }, i) => (
+              <div
+                key={step}
+                className="relative text-center animate-fade-in-up"
+                style={{ animationDelay: `${i * 0.12}s` }}
+              >
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary text-primary-foreground text-xl font-bold mb-4">
                   {step}
                 </div>
@@ -181,8 +204,12 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {FEATURES.map(({ icon: Icon, title, description }) => (
-              <Card key={title} className="group hover:shadow-md transition-shadow">
+            {FEATURES.map(({ icon: Icon, title, description }, i) => (
+              <Card
+                key={title}
+                className="group hover:shadow-md transition-shadow animate-fade-in-up"
+                style={{ animationDelay: `${i * 0.1 + 0.05}s` }}
+              >
                 <CardHeader>
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -239,10 +266,11 @@ export default function HomePage() {
           <p className="text-primary-foreground/80 text-lg mb-10 max-w-xl mx-auto">
             Join thousands of users saving hours every week with AI-powered email generation.
           </p>
+          {/* hover-pulse gives a gentle repeating scale on hover */}
           <Button
             size="lg"
             variant="secondary"
-            className="text-base px-10 h-12"
+            className="text-base px-10 h-12 hover-pulse transition-transform"
             asChild
           >
             <Link href="/signup">

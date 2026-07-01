@@ -13,7 +13,7 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-muted/20 py-10 px-4">
       <div className="max-w-3xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-8 animate-fade-in-up">
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
           <p className="text-muted-foreground mt-1">
             Generate a professional email in seconds.
